@@ -1,0 +1,12 @@
+<novns> leitz, using Scan can be boring and uncomfortable in templates for example
+<leitz> novns, good url/book for Golang and sql based DBs? The tutorials I referenced seemed to stop at the basics. 
+<novns> leitz, that's why I use my own chained functions where you can set destination once and every Next does scan for you
+<novns> https://github.com/novns/sumbur/blob/master/db/rows.go
+<novns> it's for postgresql, but you'll get the idea
+<novns> leitz, and https://github.com/novns/sumbur/blob/master/db/db.go for database routines
+<novns> (db *DB) Query  doesn't execute the query itself, just sets up the Rows object
+<novns> because it would get stuck in context otherwise
+<novns> with Fields() you can set destinations, and Next() executes the query if called or the first time, and does Scan inside on every call
+<novns> and Get() is a shortcut for setting destinations, getting a single Row and closing the query
+<novns> leitz, and most of methods return the object itself do you can call them in chain, like db.Query(query, args...).Get(&destination)
+
