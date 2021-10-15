@@ -1,0 +1,10 @@
+
+# See the mariadb HOWTO on creating and populating the database container.
+
+# Most of the notes here come from:
+#  https://mariadb.com/fr/resources/blog/using-go-with-mariadb/
+
+# Get the MariaDb/MySQL driver
+go get github.com/go-sql-driver/mysql
+
+
